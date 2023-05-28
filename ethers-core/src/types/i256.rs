@@ -125,7 +125,7 @@ impl I256 {
     /// One (multiplicative identity) of this type.
     #[inline(always)]
     pub const fn one() -> Self {
-        Self(U256::one())
+        Self(U256([1; 4]))
     }
 
     /// Minus one (multiplicative inverse) of this type.
@@ -275,7 +275,7 @@ impl I256 {
     /// or positive.
     #[inline(always)]
     pub const fn is_zero(self) -> bool {
-        self.0.is_zero()
+        self.0.0[0] == 0
     }
 
     /// Return the least number of bits needed to represent the number.
